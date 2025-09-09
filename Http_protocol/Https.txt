@@ -1,0 +1,68 @@
+HTTP/ HTTPs
+
+- HTTP stands for HyperText Transfer (secure) Protocol. It's the foundation of data communication on the World Wide Web.
+- It is application layer protocol
+-The HTTP protocol is built on top of TCP (Transmission Control Protocol). It doesn't have its own module for data transmission; rather, it relies on TCP/IP to handle the actual communication between the client and the server.
+- For Https Enceyption will do by openssl or TLS AES encryption library.
+
+
+
+
+*******************************************************************************************************************************************************
+How HTTP and TCP Work Together
+
+HTTP operates at the Application Layer of the OSI model, which is responsible for handling high-level communication tasks (like web browsing).
+TCP operates at the Transport Layer, which ensures reliable data transmission between systems, breaking data into packets and handling retransmission in case of errors.
+So, when a client (e.g., a browser) wants to fetch a web page, the following sequence occurs:
+
+- TCP Connection: The client initiates a TCP connection with the server on port 80 (for HTTP) or port 443 (for HTTPS).
+- The client sends a SYN (synchronize) request to establish a connection.
+- The server responds with a SYN-ACK (synchronize-acknowledge), and the client responds with an ACK (acknowledge), completing the three-way handshake.
+- HTTP Request: Once the TCP connection is established, the client sends an HTTP request (e.g., a GET request for a webpage).
+- HTTP Response: The server responds with an HTTP response (including status code, headers, and possibly content like HTML).
+- TCP Termination: After the data transfer is complete, the TCP connection is terminated, typically with a FIN (finish) signal.
+
+***********************************************************************************************************************************
+
+Why is HTTP Built on TCP?
+
+- Reliability: TCP provides guaranteed delivery, in-order data transmission, and error-checking, which is essential for HTTP to function correctly.
+- Flow Control: HTTP requests and responses could be large, and TCP manages how data is sent to avoid congestion or packet loss.
+- Connection Management: TCP helps manage long-lived connections in HTTP/1.1 and beyond, allowing multiple requests to reuse the same connection (keep-alive).
+
+******************************************************************************************************************************************
+
+Can HTTP Work Without TCP?
+
+HTTP could theoretically work over another transport protocol, but TCP is used because of its reliability and flow control features. UDP (used by protocols like DNS or video streaming) is another transport protocol but lacks the reliability features of TCP, making it unsuitable for protocols like HTTP in its original form.
+
+******************************************************************************************************************************************************
+What is main function of HTTP since data transfer by TCP?
+
+While TCP is responsible for the reliable transmission of raw data packets, HTTP/HTTPS provides the rules for communication between client and server, such as how to request resources (like HTML pages, images, etc.) and how to format responses (including headers, status codes, and the body of the content).
+
+
+*************************************************************************************************************************************
+
+Resource Retrieval and Communication
+HTTP defines how clients request resources and how servers deliver those resources. The resource can be any piece of data accessible via the web, like:
+Web pages (HTML)
+Images (JPEG, PNG, etc.)
+Stylesheets (CSS)
+Scripts (JavaScript)
+Videos and audio
+APIs and data
+This is the fundamental role of HTTP: enabling web communication through a defined protocol for accessing resources.
+
+
+
+
+
+
+
+
+
+
+
+
+
